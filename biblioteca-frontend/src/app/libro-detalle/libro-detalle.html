@@ -1,0 +1,16 @@
+<h3>3. Consultar Ficha de Libro por ID (GET /api/libros/&#123;id&#125;)</h3>
+<form #fDetalle="ngForm" (ngSubmit)="onConsultarId(fDetalle)">
+  <label>ID del Libro: </label>
+  <input type="number" name="id" ngModel required min="1">
+  <button type="submit" [disabled]="fDetalle.invalid">Buscar Ficha</button>
+</form>
+
+<p style="color: red;" *ngIf="errorMsg()">{{ errorMsg() }}</p>
+
+<div *ngIf="libro()" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc;">
+  <p><strong>ID:</strong> {{ libro().id }}</p>
+  <p><strong>Título:</strong> {{ libro().titulo }}</p>
+  <p><strong>Autor:</strong> {{ libro().autor }}</p>
+  <p><strong>ISBN:</strong> {{ libro().isbn }}</p>
+  <p><strong>Stock disponible:</strong> {{ libro().stock }}</p>
+</div>

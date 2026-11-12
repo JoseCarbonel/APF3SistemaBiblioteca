@@ -1,0 +1,19 @@
+<div class="contenedor-principal">
+  <header class="encabezado">
+    <h1>Sistema de Gestión de Biblioteca - Avance de Proyecto Final 3</h1>
+    <p class="subtitulo">Desarrollo Web Integrado • Arquitectura REST (Spring Boot + Angular)</p>
+  </header>
+
+  <nav class="menu-navegacion">
+    <a routerLink="/libros" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">1. Catálogo (GET)</a>
+    <a routerLink="/libros/nuevo" routerLinkActive="activo">2. Nuevo Libro (POST)</a>
+    <a routerLink="/libros/detalle" routerLinkActive="activo">3. Buscar ID (GET)</a>
+    <a routerLink="/libros/resena" routerLinkActive="activo">4. Reseña (POST)</a>
+    <a routerLink="/prestamos/nuevo" routerLinkActive="activo">5. Préstamo (POST)</a>
+    <a routerLink="/prestamos/gestion" routerLinkActive="activo">6. Gestión (GET/PUT/DELETE)</a>
+  </nav>
+
+  <main class="tarjeta-contenido">
+    <router-outlet></router-outlet>
+  </main>
+</div>
