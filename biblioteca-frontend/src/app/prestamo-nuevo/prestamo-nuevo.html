@@ -1,0 +1,9 @@
+<h3>5. Solicitar Nuevo Préstamo (POST /api/prestamos)</h3>
+<form #fPrestamo="ngForm" (ngSubmit)="onRegistrarPrestamo(fPrestamo)">
+  <div><label>ID Usuario: </label><input type="number" name="usuarioId" ngModel required min="1"></div>
+  <div><label>ID Libro: </label><input type="number" name="libroId" ngModel required min="1"></div>
+  <div><label>Días de Préstamo: </label><input type="number" name="diasPrestamo" ngModel required min="1"></div>
+  <br>
+  <button type="submit" [disabled]="fPrestamo.invalid">Registrar Préstamo</button>
+</form>
+<p style="color: green;" *ngIf="mensaje()"><strong>{{ mensaje() }}</strong></p>

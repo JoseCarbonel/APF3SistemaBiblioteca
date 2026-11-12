@@ -1,0 +1,22 @@
+<h3>1. Catálogo y Búsqueda de Libros (GET /api/libros)</h3>
+<form #fBuscar="ngForm" (ngSubmit)="onBuscar(fBuscar)">
+  <label>Filtrar por Título (dejar vacío para listar todos): </label>
+  <input type="text" name="titulo" ngModel>
+  <button type="submit">Consultar Catálogo</button>
+</form>
+
+<br>
+<table border="1" cellpadding="6" *ngIf="libros().length > 0">
+  <thead>
+    <tr><th>ID</th><th>Título</th><th>Autor</th><th>ISBN</th><th>Stock</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let libro of libros()">
+      <td>{{ libro.id }}</td>
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.autor }}</td>
+      <td>{{ libro.isbn }}</td>
+      <td>{{ libro.stock }}</td>
+    </tr>
+  </tbody>
+</table>

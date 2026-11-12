@@ -1,0 +1,10 @@
+<h3>4. Publicar Reseña de Libro (POST /api/libros/&#123;id&#125;/reseñas)</h3>
+<form #fResena="ngForm" (ngSubmit)="onPublicarResena(fResena)">
+  <div><label>ID del Libro: </label><input type="number" name="libroId" ngModel required min="1"></div>
+  <div><label>Calificación (1-5): </label><input type="number" name="calificacion" ngModel required min="1" max="5"></div>
+  <div><label>Comentario: </label><input type="text" name="comentario" ngModel required minlength="3"></div>
+  <br>
+  <button type="submit" [disabled]="fResena.invalid">Publicar Reseña</button>
+</form>
+<p style="color: green;" *ngIf="mensaje()"><strong>{{ mensaje() }}</strong></p>
+<p style="color: red;" *ngIf="errorMsg()"><strong>{{ errorMsg() }}</strong></p>

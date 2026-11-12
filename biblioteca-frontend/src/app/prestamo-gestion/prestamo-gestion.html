@@ -1,0 +1,27 @@
+<h3>6. Gestión de Préstamos por Usuario (GET, PUT y DELETE)</h3>
+<form #fGestion="ngForm" (ngSubmit)="onConsultarUsuario(fGestion)">
+  <label>ID del Usuario (Prueba con 1): </label>
+  <input type="number" name="usuarioId" ngModel required min="1">
+  <button type="submit" [disabled]="fGestion.invalid">Listar Préstamos</button>
+</form>
+
+<p style="color: blue;" *ngIf="mensaje()"><strong>{{ mensaje() }}</strong></p>
+<br>
+
+<table border="1" cellpadding="6" *ngIf="prestamos().length > 0">
+  <thead>
+    <tr><th>ID Préstamo</th><th>ID Libro</th><th>Días</th><th>Estado</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of prestamos()">
+      <td>{{ p.id }}</td>
+      <td>{{ p.libroId }}</td>
+      <td>{{ p.diasPrestamo }}</td>
+      <td><strong>{{ p.estado }}</strong></td>
+      <td>
+        <button type="button" (click)="onDevolver(p.id)" [disabled]="p.estado === 'DEVUELTO'">Devolver (PUT)</button>
+        <button type="button" (click)="onEliminar(p.id)">Eliminar (DELETE)</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

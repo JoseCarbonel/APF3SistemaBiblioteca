@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f1f5f9;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+}
+
+.contenedor-principal {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Encabezado tipo banner */
+.encabezado {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: #ffffff;
+  padding: 24px 30px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.subtitulo {
+  margin: 6px 0 0 0;
+  font-size: 0.9rem;
+  color: #dbeafe;
+}
+
+/* Barra de navegación con botones tipo píldora */
+.menu-navegacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: #ffffff;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.menu-navegacion a {
+  text-decoration: none;
+  color: #475569;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.menu-navegacion a:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.menu-navegacion a.activo {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+/* Tarjeta blanca donde cargan los 6 formularios */
+.tarjeta-contenido {
+  background-color: #ffffff;
+  padding: 28px 30px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta-contenido h3 {
+  margin-top: 0;
+  color: #1e3a8a;
+  border-bottom: 2px solid #eff6ff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Estilos uniformes para formularios, inputs y botones */
+form div {
+  margin-bottom: 12px;
+}
+
+label {
+  display: inline-block;
+  min-width: 150px;
+  font-weight: 600;
+  color: #334155;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 240px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background-color 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Tablas estilizadas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border: none;
+}
+
+th {
+  background-color: #f8fafc;
+  color: #1e3a8a;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:hover td {
+  background-color: #f8fafc;
+}
