@@ -1,6 +1,6 @@
 <h3>6. Gestión de Préstamos por Usuario (GET, PUT y DELETE)</h3>
 <form #fGestion="ngForm" (ngSubmit)="onConsultarUsuario(fGestion)">
-  <label>ID del Usuario (Prueba con 1): </label>
+  <label>ID del Usuario: </label>
   <input type="number" name="usuarioId" ngModel required min="1">
   <button type="submit" [disabled]="fGestion.invalid">Listar Préstamos</button>
 </form>
