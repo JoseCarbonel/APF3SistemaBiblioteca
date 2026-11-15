@@ -52,7 +52,7 @@ DELETE /api/prestamos/{id} — Cancelar/Eliminar un préstamo (200 OK / 404 Not 
 
 /prestamos/gestion — Listar, devolver y eliminar préstamos por usuario (PrestamoGestion).
 
-**Ejecución del Proyecto** 
+**Ejecución del Proyecto**
 
 Iniciar el backend (Spring Boot, puerto 8080): ./gradlew bootRun
 
