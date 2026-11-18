@@ -11,15 +11,19 @@ import { BibliotecaRest } from '../servicios/biblioteca-rest';
 export class PrestamoNuevo {
   private service = inject(BibliotecaRest);
   mensaje = signal<string>('');
+  errorMsg = signal<string>(''); // NUEVO: mensaje rojo de error
 
   onRegistrarPrestamo(form: NgForm) {
+    this.mensaje.set(''); // NUEVO: limpia el mensaje de éxito anterior
+    this.errorMsg.set(''); // NUEVO: limpia el error anterior
+    const libroId = form.value.libroId; // NUEVO: guarda el id para usarlo en el mensaje (form.reset() lo borra)
     this.service.crearPrestamo(form.value).subscribe({
       next: (res) => {
         console.log('Préstamo registrado:', res);
         this.mensaje.set('¡Préstamo registrado! ID de Préstamo: ' + res.id + ' (Estado: ' + res.estado + ')');
         form.reset();
       },
-      error: (err) => console.error('Error al registrar préstamo:', err)
+      error: () => this.errorMsg.set('Error: El libro con ID ' + libroId + ' no existe.') // CAMBIADO: antes solo escribía en consola
     });
   }
 }

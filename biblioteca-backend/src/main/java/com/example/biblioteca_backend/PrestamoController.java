@@ -35,11 +35,35 @@ public class PrestamoController {
 
     // 5. POST /api/prestamos
     @PostMapping
-    public Map crearPrestamo(@RequestBody Map nuevoPrestamo) {
+    public ResponseEntity<?> crearPrestamo(@RequestBody Map<String, Object> nuevoPrestamo) {
+        Long libroId = Long.valueOf(nuevoPrestamo.get("libroId").toString());
+
+        Map<String, Object> libroEncontrado = null;
+        for (Object obj : LibroController.libros) {
+            Map<String, Object> l = (Map<String, Object>) obj;
+            if (Long.valueOf(l.get("id").toString()).equals(libroId)) {
+                libroEncontrado = l;
+                break;
+            }
+        }
+
+        if (libroEncontrado == null) {
+            return ResponseEntity.status(404)
+                    .body(Map.of("error", "El libro con ID " + libroId + " no existe en el catálogo."));
+        }
+
+        int stock = Integer.parseInt(libroEncontrado.get("stock").toString());
+        if (stock <= 0) {
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", "El libro seleccionado no tiene ejemplares disponibles."));
+        }
+
+        libroEncontrado.put("stock", stock - 1);
         nuevoPrestamo.put("id", secuenciaPrestamoId++);
         nuevoPrestamo.put("estado", "ACTIVO");
         prestamos.add(nuevoPrestamo);
-        return nuevoPrestamo;
+
+        return ResponseEntity.ok(nuevoPrestamo);
     }
 
     // 6. GET /api/prestamos/usuario/{usuarioId}

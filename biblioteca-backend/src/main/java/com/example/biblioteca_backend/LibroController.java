@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class LibroController {
 
-    private static List libros = new ArrayList();
+    public static List libros = new ArrayList<>();
     private static List resenas = new ArrayList();
     private static int secuenciaLibroId = 3;
 

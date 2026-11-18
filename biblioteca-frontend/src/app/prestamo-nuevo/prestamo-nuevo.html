@@ -7,3 +7,4 @@
   <button type="submit" [disabled]="fPrestamo.invalid">Registrar Préstamo</button>
 </form>
 <p style="color: green;" *ngIf="mensaje()"><strong>{{ mensaje() }}</strong></p>
+<p style="color: red;" *ngIf="errorMsg()"><strong>{{ errorMsg() }}</strong></p>
